@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import motor
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/gpio", methods=['POST', 'DELETE'])
 def init_or_clear_gpio():
@@ -19,5 +21,5 @@ def change_duty_cycle(val):
     
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run("192.168.0.103", port=5002)
     

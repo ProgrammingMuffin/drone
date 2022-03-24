@@ -17,22 +17,22 @@ responses:
       data () {
 	  return {
 	      response: "",
-	      host: "localhost"
+	      host: "192.168.0.103"
 	  };
       },
       methods: {
 	  init_gpio() {
-	      fetch("http://" + this.host + ":5000/gpio", {method: "POST"})
+	      fetch("http://" + this.host + ":5002/gpio", {method: "POST"})
 		  .then((res) => { this.response = res.toString() })
 		  .catch((err) => { this.response = err.toString() });
 	  },
 	  clear_gpio() {
-	      fetch("http://" + this.host + ":5000/gpio", {method: "DELETE"})
+	      fetch("http://" + this.host + ":5002/gpio", {method: "DELETE"})
 		  .then((res) => { this.response = res.toString() })
 		  .catch((err) => { this.response = err.toString() });
 	  },
 	  change_duty_cycle() {
-	      fetch("http://" + this.host + ":5000/duty/" + this.duty, {method: "PATCH"})
+	      fetch("http://" + this.host + ":5002/duty/" + this.duty, {method: "PATCH"})
 		  .then((res) => { this.response = res.toString() })
 		  .catch((err) => { this.response = err.toString() });
 	  }
